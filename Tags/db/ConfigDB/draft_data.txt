@@ -1,0 +1,35 @@
+for(var i=0;i<10;i++){
+	db.table.insert({
+		id: i,
+		name: "Table " + i,
+		floor: "Floor" + i%4,
+		state: (i%2==0) ? "Waiting" : "Empty"
+	});
+}
+
+
+for( var i=0;i<10;i++ ){
+	db.food.insert({
+		id: i,
+		name: "Food " + i,
+		image: "Binary",
+		price: 20000+i
+	});
+}
+
+for( var i=0;i<10;i++ ){
+	db.order.insert({
+		_id: i,
+		createTime: new Date(),
+		waitingTime: 1,
+		paidTime: new Date(),
+		paidMoney: 20000,
+		table_id: 1,
+		orderDetails: [
+			{food_id: i%2, quantity: 10},
+			{food_id: (i%2+1)%9, quantity: 5}
+		],
+		note: "Coffee little ice…",
+		state: "paid"
+	});
+}
