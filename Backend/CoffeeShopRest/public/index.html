@@ -1,13 +1,39 @@
 <!DOCTYPE>
-<html ng-app>
+<html ng-app='myApp'>
 	<head>
 		<script type="text/javascript" src='/angular/angular.min.js'></script>
+		
+		<script type="text/javascript" src='/controller/accounting.js'></script>
 		<link rel="stylesheet" href='/bootstrapCSS/bootstrap-theme.min.css'></script>
 		<link rel="stylesheet" href='/bootstrapCSS/bootstrap.min.css'></script>
-		<title>Angular example</title>
+		<title>Login</title>
 	</head>
 	
 	<body>
-		<input ng-model="test">{{test}}
+		<div class='container'>
+			<div class="col-sm-8 col-sm-push-4">
+				<h2>{{ appInfo.name }}</h2>
+				<p>Copyright &copy; {{ appInfo.copyrightYears }} {{ appInfo.copyrightHolder }}</p>
+				<p>Version {{ appInfo.version }}</p>
+				<p class="text-danger">Unauthorized access to this system is prohibited.</p>
+			</div>
+			<div class="col-sm-4 col-sm-pull-8">
+				<form name="loginForm" novalidate ng-controller='lgCtrl'>
+					<div class="form-group">
+						<label for="username">Username</label>
+						<input ng-model="usr.username" type="text" id="username" name="username" class="form-control" placeholder="Enter username" autofocus="true" autocomplete="off" required>
+					</div>
+					<div class="form-group">
+						<label for="password">Password</label>
+						<input ng-model="usr.password" type="password" id="password" name="password" class="form-control" placeholder="Enter password" required>
+					</div>
+					<div class="form-group">
+						<button class="btn btn-primary" ng-click='doLogin()'>Log In</button>
+					</div>
+					
+					<p>{{foods[0]}}</p>
+				</form>
+			</div>
+		</div>
 	</body>
 </html>

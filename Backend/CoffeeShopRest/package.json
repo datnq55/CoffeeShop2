@@ -12,7 +12,8 @@
 	"mongodb":"2.2.5",
 	"angular":"1.5.8",
 	"body-parser":"~1.15.2",
-	"bootstrap":"3.3.7"
+	"bootstrap":"3.3.7",
+	"request-ip":"1.2.3"
   },
   "author": "Luvsoft Team",
   "license": "ISC"
